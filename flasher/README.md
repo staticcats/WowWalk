@@ -30,8 +30,12 @@ to WebAssembly, talks to the board over WebSerial).
 
 ## Enabling GitHub Pages
 
-Repo → Settings → Pages → Source: `main` branch / `/flasher` folder (or root
-with the page at `/`). Free HTTPS is required — WebSerial refuses plain HTTP.
+The `.github/workflows/pages.yml` workflow deploys the `flasher/` folder to
+GitHub Pages automatically on every push to `main`.
+
+One-time setup: repo → **Settings → Pages → Source: "GitHub Actions"**.
+After that, pushes touching `flasher/` redeploy automatically. Free HTTPS is
+required — WebSerial refuses plain HTTP.
 
 ## Testing locally
 
