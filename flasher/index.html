@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WoWWalk Firmware Update</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 640px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+  h1 { font-size: 1.4rem; }
+  ol { line-height: 1.7; }
+  .warn { background: #fff3cd; border: 1px solid #ffe08a; padding: .75rem 1rem; border-radius: 6px; }
+  esp-web-install-button { margin: 1rem 0; }
+  #status { margin-top: 1rem; font-family: monospace; white-space: pre-wrap; }
+</style>
+<script type="module" src="https://cdn.jsdelivr.net/npm/esp-web-tools@10/dist/web/install-button.js"></script>
+</head>
+<body>
+<h1>WoWWalk Firmware Update</h1>
+
+<div class="warn">
+  Use <b>Chrome or Edge</b> — other browsers don't support device flashing.
+  Have the WoWWalk board plugged in via USB before clicking install.
+</div>
+
+<ol>
+  <li>Plug the WoWWalk board into USB.</li>
+  <li>Click <b>Install</b> below and pick the board's COM port when asked.</li>
+  <li>Wait for "Install successful" — the board reboots automatically.</li>
+</ol>
+
+<esp-web-install-button manifest="manifest.json"></esp-web-install-button>
+<div id="status"></div>
+
+<script>
+  // Show install progress in the status area
+  const btn = document.querySelector('esp-web-install-button');
+  const status = document.getElementById('status');
+  btn.addEventListener('installed', () => { status.textContent += '\nDone! Board rebooted.\n'; });
+  btn.addEventListener('button-load', () => {});
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "WoWWalk Firmware",
+  "version": "0.1.0",
+  "home_link": "/",
+  "builds": [
+    {
+      "chipFamily": "ESP32-C3",
+      "parts": [
+        { "path": "REPLACE_WITH_RELEASE_URL/bootloader.bin", "offset": 0 },
+        { "path": "REPLACE_WITH_RELEASE_URL/partitions.bin", "offset": 32768 },
+        { "path": "REPLACE_WITH_RELEASE_URL/WoWWalk.ino.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
